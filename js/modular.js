@@ -16,7 +16,7 @@ var people = (function(){
     _render();
 
     function _render(){
-        $ul.html(Mustache._render(template, {people: people}));
+        $ul.html(Mustache.render(template, {people: people}));
     };
 
     function addPerson(value){
