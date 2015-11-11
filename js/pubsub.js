@@ -22,5 +22,5 @@ var events = {
                 fn(data);
             });
         };
-    };
+    }
 };

@@ -5,8 +5,6 @@ var stats = (function(){
     var $stats = $('#statsModule');
     var template = $('#stats-template').html();
 
-    // Bind Events
-    events.on('peopleChanged', setPeople);
     _render();
 
     function _render(){
@@ -16,5 +14,9 @@ var stats = (function(){
     function setPeople(newPeople){
         people = newPeople;
         _render();
+    };
+
+    return {
+        setPeople: setPeople
     };
 })();
