@@ -5,18 +5,27 @@ var stats = (function(){
     var $stats = $('#statsModule');
     var template = $('#stats-template').html();
 
-    _render();
+    // Bind Events
+    events.on('peopleChanged', setPeople);
 
-    function _render(){
+    render();
+
+    function render(){
         $stats.html(Mustache.render(template, {people: people}));
     };
 
     function setPeople(newPeople){
         people = newPeople;
-        _render();
+        render();
+    };
+
+    function destroy(){
+        $stats.remove();
+        events.off('peopleChanged', setPeople);
     };
 
     return {
-        setPeople: setPeople
+        destroy: destroy
     };
+
 })();
